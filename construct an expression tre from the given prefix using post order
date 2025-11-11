@@ -3,93 +3,52 @@ prefix expression, e.g., +--a*bc/def, traverse it using post-order
 traversal.
 #include <stdio.h>
 #include <conio.h>
-#include <alloc.h>
+#include <stdlib.h>
 #include <string.h>
-// Structure for tree node
-struct Node
-{
-char data;
-struct Node *left, *right;
+
+struct Node {
+    char data;
+    struct Node *left, *right;
 };
-// Function to create a new tree node
-struct Node *createNode(char data)
-{
-struct Node *newNode;
-newNode = (struct Node *)malloc(sizeof(struct Node));
-newNode->data = data;
-newNode->left = NULL;
-newNode->right = NULL;
-return newNode;
+
+struct Node* createNode(char ch) {
+    struct Node *newNode;
+    newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = ch;
+    newNode->left = newNode->right = NULL;
+    return newNode;
 }
-// Check if character is an operator
-int isOperator(char ch)
-{
-if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^')
-return 1;
-return 0;
+
+struct Node* buildTree(char *prefix, int *index) {
+    char ch = prefix[*index];
+    (*index)++;
+    if(ch == '\0') return NULL;
+
+    struct Node *node = createNode(ch);
+
+    if(ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^') {
+        node->left = buildTree(prefix, index);
+        node->right = buildTree(prefix, index);
+    }
+    return node;
 }
-// Stack implementation for tree nodes
-struct Node *stack[50];
-int top = -1;
-void push(struct Node *node)
-{
-stack[++top] = node;
+
+void postOrder(struct Node *root) {
+    if(root == NULL) return;
+    postOrder(root->left);
+    postOrder(root->right);
+    printf("%c ", root->data);
 }
-struct Node *pop()
-{
-if (top == -1)
-return NULL;
-return stack[top--];
-}
-// Function to construct expression tree from prefix expression
-struct Node *constructTree(char prefix[])
-{
-int i;
-int len = strlen(prefix);
-struct Node *node, *node1, *node2;
-// Traverse prefix expression from right to left
-for (i = len - 1; i >= 0; i--)
-{
-// If operand, create node and push
-if (!isOperator(prefix[i]))
-{
-node = createNode(prefix[i]);
-push(node);
-}
-else
-{
-// Operator: pop two nodes and make them children
-node = createNode(prefix[i]);
-node1 = pop();
-node2 = pop();
-node->left = node1;
-node->right = node2;
-push(node);
-}
-}
-// Remaining node in stack is the root
-return pop();
-}
-// Postorder traversal (Left → Right → Root)
-void postorder(struct Node *root)
-{
-if (root == NULL)
-return;
-postorder(root->left);
-postorder(root->right);
-printf("%c", root->data);
-}
-void main()
-{
-char prefix[50];
-struct Node *root;
-clrscr(); // Clear screen (Turbo C specific)
-printf("=== Expression Tree Construction (Prefix to Postorder)
-===\n");
-printf("Enter a Prefix Expression (e.g., +--a*bc/def): ");
-scanf("%s", prefix);
-root = constructTree(prefix);
-printf("\nPostorder Traversal of Expression Tree: ");
-postorder(root);
-getch();
+
+void main() {
+    char prefix[50] = "+--a*bc/def";
+    int index = 0;
+    struct Node *root;
+    clrscr();
+
+    root = buildTree(prefix, &index);
+    printf("Postorder Traversal: ");
+    postOrder(root);
+
+    getch();
 }
