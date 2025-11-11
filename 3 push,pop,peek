@@ -1,75 +1,49 @@
-Q3)Implement push, pop, peek operations using array-based stack data structure.
 #include <stdio.h>
-#include <conio.h>
+#include <stdlib.h>
 
-#define MAX 5  // Maximum size of stack
+#define MAX 5
 
 int stack[MAX];
 int top = -1;
 
-// Function to push element into stack
 void push(int val)
 {
     if (top == MAX - 1)
-    {
         printf("\nStack Overflow! Cannot push %d\n", val);
-    }
     else
-    {
-        top++;
-        stack[top] = val;
-        printf("\n%d pushed into stack\n", val);
-    }
+        stack[++top] = val;
 }
 
-// Function to pop element from stack
 void pop()
 {
     if (top == -1)
-    {
-        printf("\nStack Underflow! No elements to pop.\n");
-    }
+        printf("\nStack Underflow!\n");
     else
-    {
-        printf("\n%d popped from stack\n", stack[top]);
-        top--;
-    }
+        printf("\n%d popped from stack\n", stack[top--]);
 }
 
-// Function to peek top element
 void peek()
 {
     if (top == -1)
-    {
         printf("\nStack is empty.\n");
-    }
     else
-    {
         printf("\nTop element is: %d\n", stack[top]);
+}
+
+void display()
+{
+    if (top == -1)
+        printf("\nStack is empty.\n");
+    else {
+        printf("\nStack elements:\n");
+        for (int i = top; i >= 0; i--)
+            printf("%d\n", stack[i]);
     }
 }
 
-// Function to display stack elements
-void display()
-{
-    int i;
-    if (top == -1)
-    {
-        printf("\nStack is empty.\n");
-    }
-    else
-    {
-        printf("\nStack elements:\n");
-        for (i = top; i >= 0; i--)
-        {
-            printf("%d\n", stack[i]);
-        }
-    }
-}
-void main()
+int main()
 {
     int choice, val;
-    clrscr();  // Clear screen (Turbo C specific)
 
     while (1)
     {
@@ -84,32 +58,25 @@ void main()
 
         switch (choice)
         {
-        case 1:
-            printf("Enter value to push: ");
-            scanf("%d", &val);
-            push(val);
-            break;
-
-        
-         case 2:
-           pop();
-            break;
-
-        case 3:
-            peek();
-            break;
-
-        case 4:
-            display();
-            break;
-
-        case 5:
-            printf("\nExiting program...");
-            getch();
-            exit(0);
-
-        default:
-            printf("\nInvalid choice! Try again.\n");
+            case 1:
+                printf("Enter value to push: ");
+                scanf("%d", &val);
+                push(val);
+                break;
+            case 2:
+                pop();
+                break;
+            case 3:
+                peek();
+                break;
+            case 4:
+                display();
+                break;
+            case 5:
+                printf("\nExiting program...\n");
+                return 0;
+            default:
+                printf("\nInvalid choice!\n");
         }
     }
 }
