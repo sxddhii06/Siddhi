@@ -119,3 +119,44 @@ printf("\nInvalid choice! Please try again.\n");
 }
 }
 }
+
+Algorithm 
+
+Step 1: Start
+Begin the program.
+Step 2: Create a hash table of size 10
+Each position stores:
+key
+value
+Initially, set:
+key = -1
+value = -1
+(Means the slot is empty)
+Step 3: Define hash function
+Use the division method:
+index = key % 10
+This gives position in hash table.
+Step 4: Insert a key-value pair
+Calculate index using hash function.
+If that slot is already filled:
+Move to next slot (linear probing).
+Continue until you find an empty slot.
+Insert the key and its value at the empty position.
+Step 5: Search for a given key
+Calculate index using hash function.
+Check that index:
+If key matches → print value.
+If key does not match → move to next slot (linear search).
+If you reach starting index again or find empty slot
+Key not found.
+Step 6: Display hash table
+For each index from 0 to 9:
+If key is present → show key and value
+Else show "--"
+Step 7: Keep showing menu
+User chooses:
+Insert
+Search
+Display
+Exit
+Step 8: Stop program
