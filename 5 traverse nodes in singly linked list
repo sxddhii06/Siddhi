@@ -87,3 +87,35 @@ void main()
 
     getch(); // Wait for key press before closing (Turbo C specific)
 }
+
+Algorithm
+
+Start
+2. Input
+Read the number of nodes → n
+3. If n <= 0
+Print “Invalid number of nodes”
+Sto
+✅ 4. Create the Linked List
+For each node from 1 to n:
+Allocate memory for a new node
+Read data from user
+Store the data in newNode->data
+Set newNode->next = NULL
+If this is the first node:
+Set head = newNode
+Set temp = head
+Else:
+Link previous node to new node → temp->next = newNode
+Move temp to new node
+✅ 5. After loop ends
+Print “Linked list created successfully”
+✅ 6. Traverse the Linked List
+If head == NULL
+Print “List is empty”
+Stop
+Set temp = head
+While temp != NULL:Print temp->data
+Move to next node → temp = temp->next
+Print “NULL”
+7. End
