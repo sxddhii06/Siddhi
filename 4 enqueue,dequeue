@@ -99,3 +99,46 @@ void main()
         }
     }
 }
+
+Algorithm
+
+Start
+2. Initialize
+Create an array queue[MAX]
+Set front = -1
+Set rear = -1
+3. Repeat the menu until the user exits
+Display menu:
+Enqueue
+Dequeue
+Display
+Exit
+Take user choice.
+✅ Enqueue Operation (Inset)
+4. If user selects Enqueue:
+Read the value
+Check if rear == MAX - 1
+If yes → print "Queue Overflow" (Queue is full)
+Else:
+If front == -1, set front = 0
+Increase rear by 1
+Store the value in queue[rear]
+Print that value is inserted
+✅ Dequeue Operation (Delete)
+5. If user selects Dequeue:
+Check if queue is empty:
+If front == -1 OR front > rear
+Print "Queue Underflow" (No elements to delete)
+Else:
+Print the value at queue[front]
+Increase front by 1
+✅ Display Operation
+6. If user selects Display:
+Check if queue is empty:
+If front == -1 OR front > rear
+Print "Queue is empty"
+Else:
+Print all elements from front to rear
+✅ Exit Operation7. If user selects Exit:
+Stop the program
+8. End
