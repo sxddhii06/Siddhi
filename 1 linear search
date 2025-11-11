@@ -29,3 +29,23 @@ printf("Enter %d customer account IDs:\n", n);
         printf("\nAccount ID %d not found in the list.\n", searchID);
       getch(); // wait for key press (Turbo C specific)
 }
+
+Algorithm for Linear Search (to check if an account ID exists)
+
+1.Start
+2.Read the number of customer accounts → n
+3.Create an array to store n account IDs
+4.For every index from 0 to n-1:
+-Read each account ID and store it in the array
+5.Read the account ID you want to search → searchID
+6.Set a flag variable found = 0
+7.For every index from 0 to n-1:
+-If the current element equals searchID
+-Set found = 1
+-Stop the loop (break)
+8.If found is 1:
+-Print that the account ID is found
+-Print its position
+9.Else:
+-Print that the account ID is not found
+10.Stop
