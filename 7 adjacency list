@@ -97,3 +97,36 @@ void main()
 
     getch();  // Wait for keypress before exit
 }
+
+Algorithm
+
+Start
+2. Input number of vertices
+Read vertices
+3. Create the graph
+Allocate memory for graph structure
+Set graph->numVertices = vertices
+Create an array adjList of size vertices
+Set each list entry to NULL
+4. Input number of edges
+Read edges
+✅ 5. For each edge (undirected graph)
+Repeat for i = 1 to edges:
+Read source vertex → src
+Read destination vertex → dest
+6. Add edge from source to destination
+Create a new node with value dest
+Insert it at the beginning of adjList[src]
+7. Add edge from destination to source
+Create another new node with value src
+Insert it at the beginning of adjList[dest]
+(This is because the graph is undirected.)
+✅ 8. Display the adjacency list
+For each vertex v = 0 to numVertices - 1:
+Print "Vertex v: "
+Set temp = adjList[v]
+While temp is not NULL:
+Print temp->vertex
+Move to next node (temp = temp->next)
+Print "NULL"
+9. End
