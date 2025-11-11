@@ -83,3 +83,39 @@ scanf("%d", &start);
 BFS(start, vertices);
 getch();
 }
+
+Algoritm
+
+Start
+2. Input number of vertices
+Read vertices
+If vertices < 5 → print error → stop
+3. Input number of edges
+Read edges
+4. Initialize the adjacency matrix
+For every i and j
+Set adj[i][j] = 0
+(This means no edges initially.)
+5. Read edges and fill adjacency matrix
+Repeat for each edge:
+Read source node → src
+Read destination node → destSet adj[src][dest] = 1
+(This marks a connection between nodes.)
+6. Input starting node for BFS
+Read start
+✅ 7. Initialize visited array
+For each vertex:
+Set visited[i] = 0
+✅ 8. Start BFS
+Enqueue the starting node → start
+Mark visited[start] = 1
+9. While the queue is not empty:
+Dequeue a node → call it current
+Print current
+For each vertex i:
+If adj[current][i] == 1 (means there is a link)
+AND visited[i] == 0 (not visited yet)
+Enqueue i
+Mark visited[i] = 1
+10. Continue until queue is empty
+11. End
