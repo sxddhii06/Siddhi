@@ -1,0 +1,38 @@
+Q2)Bubble Sort: Sort the salaries using the bubble sort algorithm.
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+    int salary[50], n, i, j, temp;
+    clrscr(); // Clear screen (Turbo C specific)
+     printf("Enter number of employees: ");
+    scanf("%d", &n);
+     printf("Enter salaries of %d employees:\n", n);
+    for (i = 0; i < n; i++)
+    {
+        printf("Salary %d: ", i + 1);
+        scanf("%d", &salary[i]);
+    }
+ // Bubble Sort Logic
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - i - 1; j++)
+        {
+            if (salary[j] > salary[j + 1])
+            {
+                temp = salary[j];
+                salary[j] = salary[j + 1];
+                salary[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("\nSalaries in ascending order:\n");
+    for (i = 0; i < n; i++)
+
+    {
+        printf("%d ", salary[i]);
+    }
+      printf("\n");
+      getch(); // Wait for key press (Turbo C specific)
+}
