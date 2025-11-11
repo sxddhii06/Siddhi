@@ -80,3 +80,48 @@ int main()
         }
     }
 }
+
+algorithm
+
+1.Start
+2.Initialize
+-Create an array stack[MAX]
+-Set top = -1 (means stack is empty)
+3.Repeat the menu until the user exits
+Show the menu:
+Push
+Pop
+Peek
+Display
+Exit
+Take the user's choice.
+--Push Operation--
+4.If user selects Push:
+-Read the value
+-If top == MAX - 1
+-Print "Stack Overflow"
+-Else
+-Increase top by 1
+-Insert the value at stack[top]
+--Pop Operation--
+5.If user selects Pop:
+-If top == -1
+-Print "Stack Underflow"
+-Else
+-Print and remove the value at stack[top]
+-Decrease top by 1
+--Peek Operation--
+6.If user selects Peek:
+-If top == -1
+-Print "Stack is empty"
+-Else
+-Print the value at stack[top]
+--Display Opeartion--
+7.If user selects Display:
+-If top == -1
+-Print "Stack is empty"
+-Else
+-Print all elements from top down to 0
+--Exit--
+8.If user selects Exit:
+-Stop the program
