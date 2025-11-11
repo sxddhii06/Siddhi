@@ -1,0 +1,31 @@
+Q1) Linear Search: Check if a particular customer account ID exists in the list
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+    int accounts[50], n, i, searchID, found = 0;
+   clrscr(); // clear screen (Turbo C specific)
+ printf("Enter number of customer accounts: ");
+ scanf("%d", &n);
+printf("Enter %d customer account IDs:\n", n);
+  for (i = 0; i < n; i++)
+    {
+         printf("Account ID %d: ", i + 1);
+        scanf("%d", &accounts[i]);
+    }
+      printf("\nEnter Account ID to search: ");
+    scanf("%d", &searchID);
+     for (i = 0; i < n; i++)
+    {
+        if (accounts[i] == searchID)
+        {
+            found = 1;
+            break;
+        }
+    }
+    if (found == 1)
+        printf("\nAccount ID %d found at position %d.\n", searchID, i + 1);
+    else
+        printf("\nAccount ID %d not found in the list.\n", searchID);
+      getch(); // wait for key press (Turbo C specific)
+}
