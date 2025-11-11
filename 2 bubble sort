@@ -36,3 +36,17 @@ void main()
       printf("\n");
       getch(); // Wait for key press (Turbo C specific)
 }
+
+Algorithm for Bubble Sort (Simple & Easy)
+
+1.Start
+2.Read the number of employees → n
+3.Read the salaries of all n employees into an array
+4.Repeat the following steps for i = 0 to n-2:
+-For j = 0 to n-i-2:
+-Compare salary at position j with salary at position j+1
+-If salary[j] is greater than salary[j+1]:
+-Swap the two values
+5.After all loops finish, the array will be sorted in ascending order
+6.Print the sorted salaries
+7.Stop
