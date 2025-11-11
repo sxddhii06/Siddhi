@@ -52,3 +52,30 @@ void main() {
 
     getch();
 }
+
+Algorithm
+
+Step 1: Start
+Begin the program.
+Step 2: Read/Store the prefix expression
+Example: +--a*bc/def
+Step 3: Create a function to build the tree
+Read one character from the prefix string.
+Create a new node for that character.
+If the character is an operator (+ - * / ^)
+Recursively create left child
+Recursively create right child
+If the character is an operand (a, b, c, d, e, f)
+Make it a leaf node.
+Step 4: Continue recursion until full expression is processed
+Keep increasing index after every character.
+Stop when end of string is reached.
+Step 5: After tree is built successfully, perform post-order traversal
+Post-order =Left → Right → Root
+Steps:
+Visit left subtree
+Visit right subtree
+Print the root
+Step 6: Display the output
+Print all characters in post-order format
+Step 7: Stop
